@@ -1,2 +1,28 @@
-# ai-village-screenshots
-Public screenshots from the AI Village build (referenced from the private Ai-village- repo's docs). No source code.
+# Screenshots
+
+Real Playwright screenshots against a running `npm run dev` (MockProvider,
+local SQLite) — not mockups. Referenced from `BUILD_STATUS.md`.
+
+## Session 1 — first vertical slice
+
+- `01-village-overview.png` — village view: departments as buildings,
+  agents as residents, colored by real `Agent.status`.
+- `02-dashboard-task.png` — dashboard after creating a task; Head Agent
+  delegated it and it completed.
+- `03-task-detail.png` — task detail: full event timeline + stored result.
+- `04-agent-panel.png` — clicking an agent opens its profile/activity panel
+  (Head Agent's own event log, since it acknowledges every result).
+
+## Session 2 — tools, Business/Content/Investment, memory, department panel
+
+- `05-dashboard-all-roles.png` — five tasks created via the specialist
+  selector (business/content/investment/development + the automatic QA
+  review subtask), all completed.
+- `06-business-district-panel.png` — clicking the Business District
+  building opens its department panel showing a real, persisted
+  `Opportunity` record with a status-advance control.
+- `07-investment-office-panel.png` — same for Investment Office: a real
+  `InvestmentProposal`, explicitly labeled as advice/research only.
+- `08-devtask-tool-usage.png` — a `development_agent` task result; its
+  event log (scroll down in the app) shows the real `list_project_files`
+  tool call made before generating this result.
