@@ -38,3 +38,9 @@ local SQLite) — not mockups. Referenced from `BUILD_STATUS.md`.
   (`list_project_files` → `read_project_file` → `write_project_file` →
   `run_project_tests`) that found, fixed, and verified the seeded bug —
   not just a file listing.
+- `11-village-selection.png` — clicking a building highlights it in the
+  scene (blue border) and its `DepartmentPanel` now lists real residents
+  with status, not just a count (Takenbord T004).
+- `12-village-agent-from-dept.png` — clicking a resident inside that new
+  department resident list opens their own `AgentPanel`, and the matching
+  dot in the village scene is highlighted too.
