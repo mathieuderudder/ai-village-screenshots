@@ -26,3 +26,10 @@ local SQLite) — not mockups. Referenced from `BUILD_STATUS.md`.
 - `08-devtask-tool-usage.png` — a `development_agent` task result; its
   event log (scroll down in the app) shows the real `list_project_files`
   tool call made before generating this result.
+
+## Session 3 — direct agent chat (Takenbord T001)
+
+- `09-agent-chat.png` — clicking a resident opens their panel's new Chat
+  section: a live conversation with that agent via `/api/agents/:id/messages`,
+  showing a real, role-flavored MockProvider reply persisted through the
+  existing Message table.
