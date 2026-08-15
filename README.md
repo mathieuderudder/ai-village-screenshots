@@ -27,9 +27,14 @@ local SQLite) — not mockups. Referenced from `BUILD_STATUS.md`.
   event log (scroll down in the app) shows the real `list_project_files`
   tool call made before generating this result.
 
-## Session 3 — direct agent chat (Takenbord T001)
+## Session 3 — direct agent chat (Takenbord T001), real dev vertical slice (T003)
 
 - `09-agent-chat.png` — clicking a resident opens their panel's new Chat
   section: a live conversation with that agent via `/api/agents/:id/messages`,
   showing a real, role-flavored MockProvider reply persisted through the
   existing Message table.
+- `10-devtask-real-fix.png` — a `development_agent` task against the real
+  `demo-app` project: the event log shows the genuine tool chain
+  (`list_project_files` → `read_project_file` → `write_project_file` →
+  `run_project_tests`) that found, fixed, and verified the seeded bug —
+  not just a file listing.
