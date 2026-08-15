@@ -44,3 +44,7 @@ local SQLite) — not mockups. Referenced from `BUILD_STATUS.md`.
 - `12-village-agent-from-dept.png` — clicking a resident inside that new
   department resident list opens their own `AgentPanel`, and the matching
   dot in the village scene is highlighted too.
+- `13-knowledge-library.png` — the Knowledge Library department, previously
+  always empty, now shows a real "Dorpskennis" section: a genuine
+  village-scoped memory item written by an `improvement_agent` task,
+  visible to (and recallable by) every other agent (Takenbord T005).
