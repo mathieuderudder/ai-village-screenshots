@@ -101,3 +101,18 @@ composition (T023), Approval Queue UI (T024), Head Agent briefing (T021)
 - `20-laptop-responsive.png` — the same composition at a 1366×800 laptop
   viewport: every panel reflows without overlap and the village stays the
   visually dominant element, per T023's explicit responsive requirement.
+
+## Session 7 — pixel-art pass (T025), village camera/gamefeel, Head Agent
+briefing with real recent lessons
+
+- `21-pixel-art-village.png` — every building now has a distinct
+  hand-built roof silhouette (spire/flat/dome/sawtooth/awning/gable), not
+  just a color, and every resident is a small inline-SVG pixel person
+  (status-colored torso, role-colored collar) — still no image assets.
+  The Head Agent briefing now surfaces real recent business-experiment
+  failure lessons ("Les: ...", from actual stored `MemoryItem` text), not
+  just live counts.
+- `22-village-closeup.png` — a 115% zoom close-up showing the roof/window/
+  door detail and the new status legend, taken by actually dragging and
+  scroll-zooming the real village camera (T025's "drag to move, scroll to
+  zoom" gamefeel), not a cropped screenshot.
