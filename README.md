@@ -60,3 +60,24 @@ slice (T009), Business District ranking (T010), POWER BREAK-EVEN (T011)
   sale. The strip stays in its "not reached" (red net) state, proving the
   milestone can't be gamed by simulated activity: it only ever flips on
   genuine `RevenueEvent.realized:true` rows.
+
+## Session 5 — pixel-art village overhaul (T014-T016), business UI (T017),
+automatic compute-cost lifecycle (T018), collaboration cues (T019)
+
+- `15-village-pixel-art-overview.png` — the village is now the primary
+  screen: fixed pixel-art buildings (CSS shapes, no image assets) connected
+  by dirt paths radiating from a central plaza, scattered decorative trees,
+  and every real `Agent` rendered as a small two-shape NPC sprite standing
+  in front of its actual department building — not a dashboard card list.
+- `16-village-collaboration-cue.png` — T019's state-driven collaboration
+  cue: a glowing link between Research Lab and Business District plus a
+  highlighted helper sprite, rendered only because real `Task` data shows
+  a parent task genuinely "waiting" on a child subtask actively worked by a
+  different agent. Disappears the instant that backend state changes —
+  never a random or decorative walk.
+- `17-business-district-economic-flows.png` — the new `BusinessInsights`
+  panel (T017) surfacing the session-4 economic flows against the real API:
+  opportunity ranking with composite scores, and real opportunities in
+  every honest state (STOPPED after a failed validation, ACTIVE awaiting
+  build/outcome, and SUCCESS with its outcome correctly labeled a
+  projection, never realized revenue).
