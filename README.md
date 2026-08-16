@@ -48,3 +48,15 @@ local SQLite) — not mockups. Referenced from `BUILD_STATUS.md`.
   always empty, now shows a real "Dorpskennis" section: a genuine
   village-scoped memory item written by an `improvement_agent` task,
   visible to (and recallable by) every other agent (Takenbord T005).
+
+## Session 4 — PermissionEngine beyond tools (T008), money-making vertical
+slice (T009), Business District ranking (T010), POWER BREAK-EVEN (T011)
+
+- `14-power-break-even.png` — the Dashboard's new compact "POWER BREAK-EVEN"
+  strip, backed by real `GET /api/power/summary` data: cumulative
+  compute/electricity cost (€11.70, split measured/estimated) seeded via the
+  real API for this screenshot, and — correctly — €0.00 realized revenue,
+  since nothing in this MockProvider-only environment can produce a real
+  sale. The strip stays in its "not reached" (red net) state, proving the
+  milestone can't be gamed by simulated activity: it only ever flips on
+  genuine `RevenueEvent.realized:true` rows.
