@@ -81,3 +81,23 @@ automatic compute-cost lifecycle (T018), collaboration cues (T019)
   every honest state (STOPPED after a failed validation, ACTIVE awaiting
   build/outcome, and SUCCESS with its outcome correctly labeled a
   projection, never realized revenue).
+
+## Session 6 — Functional Complete gate (T020), approved dashboard
+composition (T023), Approval Queue UI (T024), Head Agent briefing (T021)
+
+- `18-command-center-dashboard.png` — the new primary screen, matching the
+  layout the user explicitly approved in tab 1 as "exact wat ik wil": left
+  nav/Village Status/quick actions, top Head Agent briefing (with
+  clickable navigation chips) + a real KPI strip, a dominant center
+  village, and a right column showing real active projects, ranked
+  opportunities, recent activity, and a genuine pending `ApprovalRequest`
+  (T024) with working Approve/Reject controls — created via the real API
+  for this screenshot, not mocked.
+- `19-agent-info-panel.png` — the rich bottom Agent Info bar (T023) for a
+  selected resident: portrait, role, department, AI provider, a live
+  Current Focus/Stats/Logs tab set showing real recent-task counts, and an
+  active conversation — the chat message shown was actually sent and
+  answered through `POST /api/agents/:id/messages` for this screenshot.
+- `20-laptop-responsive.png` — the same composition at a 1366×800 laptop
+  viewport: every panel reflows without overlap and the village stays the
+  visually dominant element, per T023's explicit responsive requirement.
