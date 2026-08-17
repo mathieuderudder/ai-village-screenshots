@@ -155,3 +155,63 @@ public — only these rendered app screenshots. See the main repo's
   highlight across every image the cursor crossed. Confirmed via
   `document.getSelection()` returning a real, non-empty `Range` after the
   drag; fixed with a single `user-select: none` on the viewport.
+
+## T027 — Major Village Experience & Command Center visual expansion
+
+A full composition redesign, not a polish pass: the village map moved from
+"buildings on a green card with roads between them" to eight loosely
+clustered districts with their own environmental identity, plus a real
+path hierarchy (one wide civic<->market spine, narrower district spurs).
+The surrounding Command Center UI got a matching visual-system pass —
+panel depth, a gold accent identity, KPI/approval-card hierarchy, a real
+POWER BREAK-EVEN progress bar. See `apps/web/public/assets/village/
+ASSET_LICENSES.md` for the newly re-inventoried assets used this pass
+(2 more confirmed front-facing character sprites, mushrooms/lilypads/
+cattails/butterfly, a shed+silo workshop pair) — same purchased pack,
+nothing new bought or downloaded.
+
+- `30-village-overview-default-camera.png` — the default camera view:
+  HQ off-center in its own civic core, Business District's market plaza
+  with striped stall awnings, curved organic paths (visibly wider on the
+  civic<->market spine than on the district spurs), no world edge.
+- `31-village-closeup.png` — a closer zoom on the same view, showing
+  terrain variation (a second grass tone blended in) and path texture.
+- `32-hq-plaza.png` — the HQ civic square: three agent nametags
+  (Hoofd/Finance/Support) clearly spaced with zero overlap even this
+  close together.
+- `33-business-market-district.png` — the market quarter with its pond/
+  Research corner and workshop yard (shed + silo) all visible together,
+  showing how the districts read as distinct neighborhoods rather than
+  buildings scattered on bare grass.
+- `34-development-research-district.png` — Development District's
+  workshop yard (shed, silo, crates) next to Research Lab's quiet pond
+  (lilypads/cattails from this pass's asset re-inventory), with
+  Improvement/R&D Lab — deliberately the most isolated department —
+  visible further out, correctly labeled "R&D" (previously collided with
+  Research Lab's "LAB" tag; both share the same buildingType).
+- `35-agent-cluster-nametags.png` — the HQ agent cluster at a different
+  zoom level, confirming nametag spacing holds up across zoom.
+- `36-selected-agent-info.png` — a selected agent: the world-space glow
+  ring plus the redesigned bottom Agent Info panel (bigger portrait, gold
+  frame, pill-shaped tabs) reading as a character-management card.
+- `37-selected-building.png` — a selected building's department panel.
+- `38-approval-state.png` — the "Needs Your Approval" card with its new
+  gold border + count badge, now visibly higher priority than the other
+  right-column cards instead of looking identical to them.
+- `39-power-breakeven-card.png` — POWER BREAK-EVEN's new progress bar,
+  computed directly from the same realized-revenue/compute-cost numbers
+  already shown as text (no separate estimate).
+- `40-command-center-desktop.png` — the full redesigned shell: gold
+  brand mark, card-based left sidebar, KPI cards with colored top
+  accents, panel-depth right column.
+- `41-command-center-laptop-1366x800.png` — the same shell at
+  1366×800: village stays dominant, no overlap, all panels reflow
+  cleanly.
+- `42-zoomed-out-world-wilderness.png` — full world at 50% zoom: every
+  district visible at once, dense wilderness ring, no rectangle-in-
+  rectangle terrain seam.
+- `43-high-zoom-building-detail.png` — a close zoom on building/prop
+  detail. No building-interior proof was built this pass (T022 stays
+  open, as the brief explicitly allowed if it risked needing a larger
+  architecture change than a visual pass justifies) — this is the
+  highest-detail view actually shipped instead.
