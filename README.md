@@ -215,3 +215,57 @@ nothing new bought or downloaded.
   open, as the brief explicitly allowed if it risked needing a larger
   architecture change than a visual pass justifies) — this is the
   highest-detail view actually shipped instead.
+
+## T028 — Visual Reference Match: closing the gap to the approved Tab 1
+mockup
+
+T027 was technically complete but still visually "a pixel-art village",
+not yet "clearly the same product" as the approved reference mockup
+compared against fresh screenshots. This pass closes that gap on three
+fronts: the default camera is now close enough that buildings dominate the
+viewport instead of a wide overview (default zoom raised, and the
+mount-time camera target re-centered on HQ itself — the old target had
+been tuned for a lower zoom and, at the new closer default, was cropping
+HQ almost entirely off the top of frame); the Head Agent briefing, Agent
+Info panel, and bottom idle-state footer now show the real character
+portrait sprites (shared via the new `characterSprites.ts`) instead of
+flat gradient/color placeholders, plus a live per-status agent-count strip
+where the footer used to be nearly empty; and the right-column cards got
+small category-color icon marks. A genuine bug was found and fixed along
+the way: `.village-path--main`'s explicit `z-index` was painting the path
+over any building caption it happened to run past (regardless of DOM
+order), which is what made HQ's "HOOFDKWARTIER" label look visually
+broken — fixed by giving buildings their own stacking level and, more
+fundamentally, by making the full department name a hover/select-only
+label instead of always-on (the small pixel sign stays the permanent
+at-a-glance ID).
+
+- `44-village-dominant-default.png` — the new default view: HQ fills a
+  large share of the frame with visible tree density around it, versus
+  T027's smaller, more distant default framing.
+- `45-village-only-hero.png` — the village viewport alone, no shell
+  chrome, showing how much closer the default camera now sits.
+- `46-hq-civic-core.png` — HQ close-up with the department name label
+  showing on hover (previously always-on and visually broken by the path
+  z-index bug described above; now clean because it renders above the
+  path and only appears on hover/select).
+- `47-market-business-district.png` — panned down to the market plaza/
+  Business District, confirming the closer default camera still reads
+  well once the user pans to a different district.
+- `48-selected-agent-full-info.png` — a selected Head Agent: the Agent
+  Info identity panel now shows the real in-world character sprite
+  (farmer-bob) instead of a flat status-colored block.
+- `49-approval-state.png` — the "Needs Your Approval" card with its new
+  category icon mark, gold border, and count badge, showing a real
+  pending `budget_allocation` approval with working Goedkeuren/Afwijzen
+  controls.
+- `50-power-breakeven-card.png` — the POWER BREAK-EVEN card's real
+  progress bar, unchanged in data source from T027, shown alongside this
+  pass's new card icon mark.
+- `51-laptop-1366x800.png` — the same default view at 1366×800: village
+  stays dominant, all panels reflow without overlap.
+- `52-village-closeup-150pct.png` — zoomed in further from the new
+  default, showing building/prop/path detail holds up at higher zoom.
+- `53-zoomed-out-world.png` — the full world at minimum zoom, confirming
+  "zoomed out" is still fully reachable on demand even though it's no
+  longer the default framing.
