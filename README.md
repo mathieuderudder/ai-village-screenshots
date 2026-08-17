@@ -269,3 +269,64 @@ at-a-glance ID).
 - `53-zoomed-out-world.png` — the full world at minimum zoom, confirming
   "zoomed out" is still fully reachable on demand even though it's no
   longer the default framing.
+
+## T029 — Village Density & Premium Game Presentation
+
+T028 fixed *scale* (a closer default camera) but the world itself still
+read as "assets placed on grass" — a building standing in a large empty
+green field with sprinkled trees, not a designed settlement. T029 is a
+density/polish pass on top of the same proven T027/T028 foundation (same
+art direction, same buildings, same camera, same backend wiring) — no
+new art-direction change. HQ got the most attention, per the brief's own
+"priority #1": a real civic plaza (fountain centerpiece, two benches,
+lamp posts, a light fence border, framing trees) around the same spot
+where the three HQ agents already stand, so they read as standing in a
+designed square instead of on bare grass. Every other district got a
+smaller version of the same treatment (a library reading bench, a
+symmetric fence around Investment Office's flowerbeds, more density in
+Business/Development/Research/Content/R&D, two small tree clusters
+instead of lone scattered trees). On the Command Center side: the Head
+Agent briefing is now portrait-forward with one strong headline sentence
+and max-3 always-visible points (the rest collapse behind a real "+N
+meer" toggle instead of dumping 7 lines as equal-weight text); the right
+column's "Active Projects"/"Top Opportunities" cards group repeated
+identical names into one row with a real "×N" count instead of spamming
+duplicate lines (a real, if unglamorous, fix — this was reading as
+debug/mock data); the Agent Info panel's idle state now shows real
+status/last-completed-task/last-activity rows instead of one empty-state
+sentence over a blank rectangle; the village toolbar's permanent hint
+sentence collapses into a small "?" tooltip after the user's first pan/
+zoom, freeing toolbar row space. Three new civic-plaza props (bench,
+fountain, fence) were cropped from the same purchased Cute Fantasy pack
+this pass — see `ASSET_LICENSES.md` in the main repo. A genuine flaky
+e2e test was found and fixed along the way (same root cause as a prior
+session's documented flake: the Head Agent briefing's async load reflows
+the page, and this test's `{force:true}` click didn't wait for that to
+settle first) — verified stable across 4 consecutive full Playwright
+runs after the fix.
+
+- `54-command-center-default.png` — the full default dashboard: denser
+  HQ plaza visible in the village pane, taller/bigger KPI numbers,
+  grouped project/opportunity cards with real ×N counts instead of
+  repeated identical rows.
+- `55-village-hero.png` — the village viewport alone at the new density.
+- `56-hq-civic-plaza.png` — HQ's new civic plaza: fountain centerpiece,
+  benches, lamp posts and a light fence border around the same spot
+  where Hoofd/Finance/Support already stand.
+- `57-business-market.png` — the market quarter with its added crate/
+  flower density.
+- `58-development-workshop.png` — Development District's workshop yard
+  next to Research Lab's pond, both visibly denser than T028.
+- `59-research-pond.png` — Research Lab's pond corner close up.
+- `60-selected-head-agent.png` — the Head Agent selected: the Agent Info
+  panel's Current Focus tab now shows real status/last-activity rows
+  instead of a blank rectangle when there's no active task.
+- `61-selected-other-agent.png` — a second, different agent selected,
+  confirming the same idle-state treatment holds for every agent.
+- `62-approval-and-breakeven.png` — the "Needs Your Approval" and POWER
+  BREAK-EVEN cards together in the right column.
+- `63-laptop-1366x800.png` — the same default view at 1366×800.
+- `64-zoomed-out-wilderness.png` — full world at minimum zoom, confirming
+  wilderness density and world-edge behavior are unchanged.
+- `65-village-closeup-150pct.png` — a closer zoom than default, showing
+  the new civic-plaza props hold up at higher detail.
