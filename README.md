@@ -116,3 +116,42 @@ briefing with real recent lessons
   door detail and the new status legend, taken by actually dragging and
   scroll-zooming the real village camera (T025's "drag to move, scroll to
   zoom" gamefeel), not a cropped screenshot.
+
+## Session 8 — final art direction: Kenmi "Cute Fantasy RPG", camera fixes
+
+The hand-rolled inline-SVG pixel art (and a since-abandoned mid-session
+detour into kit-bashing free CC0 tile packs) is replaced by real sprite
+art from the purchased, commercially licensed Kenmi "Cute Fantasy RPG"
+pack. Source files themselves are never published here or anywhere
+public — only these rendered app screenshots. See the main repo's
+`apps/web/public/assets/village/ASSET_LICENSES.md` for full attribution.
+
+- `23-cute-fantasy-village-overview.png` — the default camera view: real
+  building sprites per department (church for HQ, inn for Business
+  District, blacksmith for Development, etc.), organic curved paths, a
+  denser wilderness ring of trees/rocks/bushes at the world's edge, no
+  exposed canvas boundary anywhere in view.
+- `24-hq-nametag-closeup.png` — close-up on the HQ cluster showing the
+  label cleanup: a small building sign is the primary ID, the full
+  department name sits quieter underneath, and the three HQ agent
+  nametags (Hoofd/Finance/Support) are clearly spaced with no overlap.
+- `25-agent-selected.png` — a selected agent: a visible highlight ring
+  under the sprite and a brightened nametag border distinguish it from
+  unselected agents, with the real Current Focus/chat panel open below.
+- `26-laptop-responsive.png` — the same village at a 1366×800 laptop
+  viewport, confirming the composition still reads cleanly at the
+  smaller size.
+- `27-full-world-50pct-zoom.png` — maximum zoom-out: the entire village
+  and its surrounding forest fit in frame with continuous terrain, no
+  "rectangle inside a rectangle" seam between the core and the padding
+  band.
+- `28-camera-bug-before-fix.png` / `29-camera-bug-after-fix.png` — the
+  same real drag-pan gesture at 150% zoom, before and after a genuine bug
+  fix. What looked like a GPU rendering artifact (solid blue rectangles
+  behind trees) turned out to be the browser's native text/image
+  selection highlight: the custom drag-to-pan handler never set
+  `user-select: none`, so a click-drag pan was indistinguishable from a
+  native selection drag, and Chromium painted its default blue selection
+  highlight across every image the cursor crossed. Confirmed via
+  `document.getSelection()` returning a real, non-empty `Range` after the
+  drag; fixed with a single `user-select: none` on the viewport.
