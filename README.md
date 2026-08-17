@@ -330,3 +330,41 @@ runs after the fix.
   wilderness density and world-edge behavior are unchanged.
 - `65-village-closeup-150pct.png` — a closer zoom than default, showing
   the new civic-plaza props hold up at higher detail.
+
+## T029 continued — path rebuild (tile-based roads, not CSS lines)
+
+A follow-up pass on the same T029 milestone: the density/UI work above
+landed, but the paths themselves still read as "a line connecting
+buildings" — a single rotated CSS div per straight run, filled with one
+repeating background tile and softened only by a blurred box-shadow
+halo. Visually real texture, but the *shape* was still a drawn line, not
+built-from-tiles ground. Rebuilt from scratch: each path segment is now
+tiled in real 16px squares, using several different pixel-perfect crops
+from the purchased pack's `Cobble_Road` sheets (verified crop-by-crop to
+contain zero background bleed — the original single-tile crop used
+before this pass had a visible sliver of the sheet's matte color baked
+into its edge, which is what caused a faint repeating seam). MAIN roads
+(civic↔market spine) are stone, 2 tiles wide; SECONDARY spurs are the
+dirt/tan variant, 1 tile wide — a real material difference now, not just
+a CSS width difference. Plazas got the same treatment: real tiled stone
+floor instead of a flat color decorated with fixed CSS gradient "dots."
+Re-verified the T027/T028 path/building click-target geometry check
+after the width increase (26→32px main, 13→16px secondary) — still
+exactly the same 14 legitimate own-building-spur overlaps, no new ones.
+
+- `66-hq-path-plaza-closeup.png` — HQ's plaza floor and connecting path,
+  now visibly individual stone/dirt tiles instead of a flat strip.
+- `67-business-path-plaza.png` — the market plaza's tiled stone floor.
+- `68-development-district.png` — Development District's dirt path
+  curving in from the west, individual tiles clearly visible.
+- `69-village-normal-zoom.png` — the default view with the new road
+  network: stone main spine vs. dirt district spurs, a real material
+  hierarchy readable at a glance.
+- `70-path-closeup-tiles.png` — the closest practical look at the tile
+  grid itself: this is the shot to judge "does this read as pixel-art
+  road tiles" against.
+- `71-full-command-center.png` — the full dashboard with the rebuilt
+  paths visible in the village pane.
+- `72-selected-agent.png` — a selected agent, confirming path z-order
+  changes didn't regress click targets or label rendering.
+- `73-laptop-1366x800.png` — the same default view at 1366×800.
