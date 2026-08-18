@@ -411,3 +411,57 @@ exclusively from the saved layout, no hardcoded fallback.
   every other Command Center panel unchanged.
 - `85-laptop-1366x800.png` — the editor at 1366×800, palette/inspector
   collapsible so the canvas stays dominant on a real laptop screen.
+
+## Cloud Sprint — T031 Builder UX Upgrade + T032 Asset Library & Prefabs
+
+T030's editor hardened (a real StrictMode double-invoke bug in undo/redo
+found and fixed — see BUILD_STATUS.md) and extended with the tools a human
+level designer actually needs day to day: multi-select, groups, copy/
+paste, better snapping, a curated asset palette with favorites/recent, and
+a decorative prefab system — all still visual/editor-only, still never
+auto-redesigning the village or touching backend Department logic.
+
+- `86-multi-select.png` — three trees shift-click multi-selected (blue
+  outlines); the inspector switches to a "3 OBJECTS SELECTED" panel with
+  Copy/Duplicate/Delete/Focus, bulk lock/unlock, bulk layer change, and
+  Create Group — and the toolbar's Undo button now shows a real action
+  label ("Undo Place Eik (groot)"), T031 section 7's History UX.
+- `87-group-selected.png` — the same three trees grouped as "Forest
+  Cluster"; the inspector's new Group panel (rename, Select Full Group,
+  Lock Group, Duplicate Group, Ungroup, nudge-move) and a subtle dashed
+  outline on canvas marking grouped objects.
+- `88-curated-asset-palette.png` — the re-audited asset library's curated
+  human categories (Buildings/Market/Workshop/Civic/Garden/Nature/Forest/
+  Water/Paths & Ground/Fences/Lighting/Furniture/Storage/Details) replacing
+  the old flat technical tab list — an asset can appear under more than
+  one (e.g. a building shows under both "Buildings" and its flavor tab).
+- `89-favorites.png` — two assets starred as favorites, filtered via the
+  palette's "★ Favorieten" tab; favorites/recent/thumbnail-size preferences
+  persist locally (localStorage) per T031 section 5 / T032 section 2.
+- `90-prefab-browser.png` — the new Prefabs tab: 12 curated decorative
+  prefabs (Forest Cluster Small/Large, Market Stall Set, Workshop Corner,
+  HQ Flowerbed, Bench + Lamp, Research Pond Edge, Crate Stack, Fence
+  Corner, Library Garden, Business Market Corner, Development Supply
+  Stack), each built only from already-licensed assets — no new art.
+- `91-prefab-placed-in-world.png` — the "Market Stall Set" prefab placed
+  with one click: 3 stalls + a lamp post appear together as a new,
+  independently editable group; the toolbar shows "Undo Place prefab:
+  Market Stall Set" as a single history step.
+- `92-play-mode-after-reload.png` — after SAVE VILLAGE + a full page
+  reload, the placed prefab (market stalls) renders correctly in Play
+  Mode from the persisted layout — proving the save/reload round-trip
+  survives the new `groups` field and prefab-placed objects.
+- `93-laptop-1366x800-warnings.png` — the real (non-demo) village at
+  1366×800, fully staffed (VILLAGE READY, 8/8 departments), showing
+  T032 Phase 4's new lightweight map-quality warnings in the
+  Requirements panel (zones outside world bounds, a department with no
+  path near its entrance) — assistive, non-blocking, exactly as designed.
+
+Not published (per the sprint's explicit "never publish raw paid
+spritesheets/extracted asset sheets" rule, and because it wasn't actually
+built — see BUILD_STATUS.md's "known limitations"): a screenshot of
+shape-based path auto-tiling. The currently-registered/licensed path
+tiles (`stone-0..3`, `dirt-0..3`) are undirected texture variants, not a
+directional corner/T-junction/crossing/end-cap tile set, so true
+auto-tiling isn't something the current asset pack can honestly support —
+documented rather than faked with CSS.
