@@ -368,3 +368,46 @@ exactly the same 14 legitimate own-building-spur overlaps, no new ones.
 - `72-selected-agent.png` — a selected agent, confirming path z-order
   changes didn't regress click targets or label rendering.
 - `73-laptop-1366x800.png` — the same default view at 1366×800.
+
+## T030 — Village Builder / Level Editor
+
+A new browser-based in-app level editor, so the visual village layout can
+be designed directly by hand instead of round-tripping through Claude
+editing hardcoded pixel coordinates in Village.tsx. Reachable via
+"✎ Edit Village" in the Command Center's Quick Actions. Visual layout
+(buildings/nature/props/paths/terrain/agent zones) is now a real,
+editable, saved/versioned data structure (VillageLayoutData) completely
+decoupled from backend identity — a building sprite has no built-in
+meaning until the user explicitly assigns it as a department's primary
+anchor via the Object Inspector. The existing T029 hand-coded village was
+migrated once into this format as the "baseline"; Play Mode now renders
+exclusively from the saved layout, no hardcoded fallback.
+
+- `74-empty-village-builder.png` — New Empty Village: a real blank green
+  canvas with grid, no automatic buildings/paths/district layout.
+- `75-asset-palette-open.png` — the asset library, category tabs +
+  search + thumbnail grid, defaulting to Buildings.
+- `76-placement-ghost-preview.png` — a semi-transparent ghost preview
+  follows the cursor before a placement click commits it.
+- `77-object-selected-inspector.png` — a placed building selected, the
+  Object Inspector showing position/scale/layer/lock/functional
+  assignment.
+- `78-requirements-checklist.png` — the church assigned as Hoofdkwartier's
+  primary anchor; the Village Requirements panel updates live (1/8
+  placed, real per-department error list, zero duplicate anchors).
+- `79-path-brush.png` — a real tile-based path painted by drag, stone
+  tiles from the same registry T029's rebuilt roads use — no CSS lines.
+- `80-agent-zone-edit-mode.png` — an Agent Zone drawn by drag; visible
+  (dashed, labeled) only in Edit Mode, invisible in Play Mode.
+- `81-partially-built-village.png` / `84-current-village-imported.png` —
+  the real T029 baseline loaded via "Edit Current Village" (both shots
+  land on the same real state — this build's "in progress" village and
+  "imported baseline" are the same data, since editing continues on the
+  real current layout rather than a separate demo).
+- `82-preview-mode-collapsed-chrome.png` — palette and inspector both
+  collapsed, closest approximation to a distraction-free canvas view.
+- `83-play-mode.png` — the same village rendered in Play Mode: real
+  backend agents standing in their assigned zones, HQ clickable, KPIs and
+  every other Command Center panel unchanged.
+- `85-laptop-1366x800.png` — the editor at 1366×800, palette/inspector
+  collapsible so the canvas stays dominant on a real laptop screen.
